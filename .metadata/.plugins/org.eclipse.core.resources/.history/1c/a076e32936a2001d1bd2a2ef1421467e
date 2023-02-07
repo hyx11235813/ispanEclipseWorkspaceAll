@@ -1,0 +1,13 @@
+package homework5;
+
+import java.io.*;
+
+public class EmployeeFile {
+
+	public static void main(String[] args) {
+		File file=new File("c:\\EmployeeFile");
+		file.mkdir();
+
+	}
+
+}

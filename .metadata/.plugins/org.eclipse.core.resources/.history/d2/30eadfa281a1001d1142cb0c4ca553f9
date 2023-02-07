@@ -1,0 +1,9 @@
+package homework5;
+
+public class StackEmptyException extends Exception {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

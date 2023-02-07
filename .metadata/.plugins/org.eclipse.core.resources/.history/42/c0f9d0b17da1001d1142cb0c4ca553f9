@@ -1,0 +1,31 @@
+package homework5;
+
+public class Stack {
+
+	public int[] data;
+	public int top;
+
+	public Stack(int size) {
+		data = new int[size];
+		top = -1; // 初始是-1，所以存入資料才會從0開始
+	}
+
+	public void push(int value) throws StackFullException{
+		if (top == data.length - 1) {
+			throw new StackFullException();
+		}
+		data[++top] = value;
+	}
+
+	public void pop(int value) throws StackEmptyException {
+		if (top == -1) {
+			throw new StackEmptyException();
+		}
+	}
+
+	public class StackFullException extends Exception {
+
+	public static void main(String[] args) {
+		try  {push(depth);}
+	}
+}

@@ -1,0 +1,62 @@
+package homework5;
+
+public class Stack {
+
+	private int[] data;
+	private int top;
+
+	public Stack(int size) {
+		data = new int[size];
+		top = -1; // 初始是-1，所以存入資料才會從0開始
+	}
+
+	public void push(int value) throws StackFullException {//可能發生的錯誤
+		if (top == data.length - 1) { //滿了
+			throw new StackFullException();
+		} else
+			data[++top] = value;// 將陣列的索引值加一後（即top加一），再將 value 賦值給陣列的這個索引位置。
+	}
+
+	public int pop(int value) throws StackEmptyException {
+		if (top == -1) { //空了
+			throw new StackEmptyException();
+		} else
+			return data[top--];  
+	}
+
+	@SuppressWarnings("serial")
+	class StackFullException extends Exception {
+		public StackFullException() {
+			super("Stack is Full"); // 傳給父類的建構子更改 Exception 的錯誤訊息
+		}
+	}
+
+	@SuppressWarnings("serial")
+	class StackEmptyException extends Exception {
+		public StackEmptyException() {
+			super("Stack is empty");
+		}
+	}
+
+	public static void main(String[] args) {
+
+		Stack stack = new Stack(3);
+		try {
+			stack.push(1); //top 0
+			stack.push(2); //top 1
+			stack.push(3);
+			stack.push(4);
+		} catch (StackFullException e) {
+			System.out.println("Stack is Full");
+		}
+//		try {
+//			stack.pop(1);
+//			stack.pop(2);
+//			stack.pop(3);
+//
+//		} catch (StackEmptyException e) {
+//			System.out.println(e.getMessage());
+//		}
+
+	}
+}

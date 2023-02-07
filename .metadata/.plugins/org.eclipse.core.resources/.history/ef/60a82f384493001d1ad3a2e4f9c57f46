@@ -1,0 +1,56 @@
+package homework1;
+
+public class Electricity {
+
+	public static void main(String[] args) {
+		int nonBusiness = 500;
+		int business = 0;
+		double fee;
+
+		if (nonBusiness > 0) {
+			if (nonBusiness <= 120) {
+				fee = nonBusiness * 1.63;
+				System.out.print(fee);
+			} else if (nonBusiness > 120 && nonBusiness <= 330) {
+				fee = nonBusiness * 2.10;
+				System.out.print(fee);
+			} else if (nonBusiness > 330 && nonBusiness <= 500) {
+				fee = nonBusiness * 2.89;
+				System.out.print(fee);
+
+			} else if (nonBusiness > 500 && nonBusiness <= 700) {
+				fee = nonBusiness * 3.94;
+				System.out.print(fee);
+			} else if (nonBusiness > 700 && nonBusiness <= 1000) {
+				fee = nonBusiness * 4.60;
+				System.out.print(fee);
+			} else
+				fee = nonBusiness * 5.03;
+			System.out.print(fee);
+
+		} else {
+			if (business > 0) {
+				if (business <= 330) {
+					fee = business * 2.12;
+					System.out.print(fee);
+				} else if (business > 330 && business <= 700) {
+					fee = business * 2.91;
+					System.out.print(fee);
+				} else if (business > 700 && business <= 1500) {
+					fee = business * 3.44;
+					System.out.print(fee);
+				} else
+					fee = business * 5.05;
+				System.out.print(fee);
+
+			}
+
+		}
+
+	}
+
+	{
+
+	}
+
+}

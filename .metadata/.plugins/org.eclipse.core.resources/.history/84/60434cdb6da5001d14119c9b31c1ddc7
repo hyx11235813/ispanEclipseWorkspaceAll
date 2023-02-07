@@ -1,0 +1,16 @@
+package userDao;
+
+import bean.User;
+
+public interface IUserDAO {
+	
+	//c
+	boolean createUser(User user);
+	
+	//r
+	User findPersonByName(String name);
+	//u
+	
+	//d
+	
+}

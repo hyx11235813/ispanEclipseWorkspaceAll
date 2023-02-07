@@ -1,0 +1,32 @@
+package homework4;
+
+public class CheckID {
+	public static boolean isId(String id) {
+		if (id.length() != 10) {
+			return false;
+		}
+
+		char first = id.charAt(0);
+		if (!Character.isLetter(first)) { //判斷是不是字母
+			return false;
+		}
+		char second = id.charAt(2);
+		if (second == 1 && second == 2) {
+			return false;
+		}
+		for (int i = 2; i < 10; i++) {
+			char num = id.charAt(i);
+			if (!Character.isDigit(num)) { //判斷是不是數字
+				return false;
+			}
+
+		}
+
+		return true;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package homework5;
+
+import java.io.*;
+
+public class EmployeeFile {
+
+	public static void main(String[] args) throws IOException {
+		File dir=new File("c:\\EmployeeFile");
+		dir.mkdir();
+		System.out.println(dir.isDirectory());
+		File files = new File(dir,"input.txt");
+		files.createNewFile();
+		System.out.print(files.isFile());
+
+	}
+
+}

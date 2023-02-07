@@ -1,0 +1,7 @@
+1675696311771	Extract local variable 'conn'
+1675696370890	Extract local variable 'connection'
+1675696474593	Extract local variable 'pstmt'
+1675699001658	Rename type 'UserDataAccessObject'
+1675700280564	Extract local variable 'connectionTool'
+1675700376425	Extract local variable 'conn'
+1675701610481	Extract local variable 'jsonParser'

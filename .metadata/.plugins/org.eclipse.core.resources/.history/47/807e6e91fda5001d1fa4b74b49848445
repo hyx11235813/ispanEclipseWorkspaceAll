@@ -1,0 +1,29 @@
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class MetaDataDemo {
+
+	public static void main(String[] args) {
+		String url = "jdbc:sqlserver://localhost:1433;databaseName=Northwind;encrypt=false";
+		String user = "huangyixian";
+		String pwd = "123";
+
+		try (Connection conn = DriverManager.getConnection(url, user, pwd)) {
+			DatabaseMetaData metaData = conn.getMetaData();
+			System.out.println(metaData.getDatabaseProductName());// 資料庫名稱
+			System.out.println(metaData.getDatabaseProductVersion());// 資料庫版本
+			System.out.println(metaData.getDriverName());// 驅動程式名稱
+			System.out.println(metaData.getDriverVersion());// 驅動版本
+			System.out.println(metaData.getUserName());// 使用者名稱
+			System.out.println(metaData.getURL());// DBMS的URL
+		}
+
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

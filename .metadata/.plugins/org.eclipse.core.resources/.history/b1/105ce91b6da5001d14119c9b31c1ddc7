@@ -1,0 +1,10 @@
+package userDao;
+
+import bean.User;
+
+public interface IUserDAO {
+	
+	boolean createUser(User user);
+	
+	
+}

@@ -1,0 +1,46 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DBtoFile {
+
+	public static void main(String[] args) {
+		String url = "jdbc:sqlserver://localhost:1433;databasename=Northwind;encrypt=false";
+		String user = "huangyixian";
+		String pwd = "123";
+		try (Connection conn = DriverManager.getConnection(url, user, pwd)) {
+			String sql = "select fileName,Myfile from [fileTable]where filename='aaa.jpg'";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				System.out.println(rs.getString(1)); //資料庫第一行
+				FileOutputStream fos = new FileOutputStream("C:/java/output.jpg");// 檔案放的路徑，跟命名
+				InputStream binaryStream = rs.getBinaryStream(2); //資料庫第二行
+				int data = 0;
+				while ((data = binaryStream.read()) != -1) {
+					fos.write(data);
+				}
+				fos.flush();
+				fos.close();
+				binaryStream.close();
+				System.out.println("ok");
+			}
+		}
+
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

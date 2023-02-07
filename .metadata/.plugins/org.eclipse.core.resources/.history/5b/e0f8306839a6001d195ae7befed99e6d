@@ -1,0 +1,21 @@
+package userDao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import bean.User;
+import connectionUtil.ConnectionTool;
+
+public class JasonToDb {
+	public static Connection ConnectToDB() {
+		String sql = "insert into[Person](title,party,name,district,postcode,address,phoneNumber,fax(?,?,?,?,?,?,?,?)";// 8
+		ConnectionTool conn = new ConnectionTool();
+		return null;
+
+
+	
+
+	}
+
+}

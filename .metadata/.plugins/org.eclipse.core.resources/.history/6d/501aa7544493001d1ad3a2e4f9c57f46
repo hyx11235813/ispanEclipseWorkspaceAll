@@ -1,0 +1,21 @@
+package homework1;
+
+public class Electricity {
+
+	public static void main(String[] args) {
+		int use=0;//0,1power
+		int kwh=0;
+		
+		if (use==0) {
+			if(kwh<=120) {
+				kwh*1.63
+			}else if(kwh>120&&kwh<=330<) {
+				kwh=kwh*1.63+khw-120*2.10;
+				
+			}
+			
+			
+		}else{}//use1
+			
+		}
+}

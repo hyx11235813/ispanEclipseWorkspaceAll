@@ -1,0 +1,8 @@
+package userDao;
+
+public interface IUserDAO {
+	
+	boolean create
+	
+	
+}

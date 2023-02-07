@@ -1,0 +1,19 @@
+package jdbc;
+
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.util.Enumeration;
+import java.util.Iterator;
+
+public class RegDriver2 {
+
+	public static void main(String[] args) {
+		System.setProperty("jdbc.drivers", "com.microsoft.sqlserver" + "jdbc.SQLServerDriver");
+		Enumeration<Driver> drivers = DriverManager.getDrivers();//通過調用DriverManager.getDrivers()方法獲取所有已註冊的JDBC驅動程序，並將其存儲在drivers變量中
+		Iterator<Driver> driIter = drivers.asIterator();
+		driIter.forEachRemaining(System.out::println);
+	
+		//總的來說，這個三行代碼的目的是遍歷並輸出所有已經註冊的JDBC驅動程序。
+	}
+
+}

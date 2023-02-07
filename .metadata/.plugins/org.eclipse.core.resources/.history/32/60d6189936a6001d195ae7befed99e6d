@@ -1,0 +1,46 @@
+package userDao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import bean.User;
+import connectionUtil.ConnectionTool;
+
+public class UserDataAccessObject implements IUserDAO {
+
+	@Override
+	public boolean createPerson(User person) {
+		String sql = "insert into[Person](title,party,name,district,postcode,address,phoneNumber,fax(?,?,?,?,?,?,?,?)";//8
+		ConnectionTool conn = new ConnectionTool();
+		
+		try (Connection connection = conn.getConnection()) {
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public User findPersonByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updatePerson(User person) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deletPersonByid(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

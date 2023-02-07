@@ -1,0 +1,21 @@
+package jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionDemo {
+	//目的：通過使用DriverManager.getConnection方法連接到SQL Server數據庫
+	public static void main(String[] args) {
+		try (Connection conn = DriverManager.getConnection(//連接到SQL Server數據庫
+				"jdbc:sqlserver://localhost:1433;databaseName=Northwind;encrypt=false", "banana", "123")) {
+			System.out.println("ok");
+			conn.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

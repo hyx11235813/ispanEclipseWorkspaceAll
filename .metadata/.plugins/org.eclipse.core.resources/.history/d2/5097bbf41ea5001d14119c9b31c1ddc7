@@ -1,0 +1,21 @@
+package connectionUtil;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConnectionFactory {
+	
+	//功能：建立數據庫連綫，幫我們傳遞sql語句給資料庫執行
+	private String url = "jdbc:sqlserver://localhost:1433;databaseName=Northwind;encrypt=false";
+	private String user = "banana";
+	private String pwd = "123";
+
+	public Connection getConnection() throws SQLException {
+		return DriverManager.getConnection(url, user, pwd);
+//功能：將創建數據庫連綫的過程封裝到了getConnection()方法中
+//因此可以在多個地方調用這個方法
+	}
+
+}
+//

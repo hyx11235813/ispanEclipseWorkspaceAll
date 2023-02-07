@@ -1,0 +1,47 @@
+package module5;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class DBtoFile {
+
+	public static void main(String[] args) {
+		String url = "jdbc:sqlserver://localhost:1433;databasename=Northwind;encrypt=false";
+		String user = "huangyixian";
+		String pwd = "123";
+		try (Connection conn = DriverManager.getConnection(url, user, pwd)) {
+			String sql = "select fileName,Myfile from [fileTable]where filename='aaa.jpg'"; //找出aaa.jpg
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery(); //結果集=查詢結果
+
+			while (rs.next()) {
+				System.out.println(rs.getString(1)); //資料庫第一行
+				FileOutputStream fos = new FileOutputStream("C:/java/output.jpg");// 檔案放的路徑，跟命名
+				InputStream binaryStream = rs.getBinaryStream(2); //資料庫第二行  //二進制
+				int data = 0;
+				while ((data = binaryStream.read()) != -1) {  //透過 binaryStream.read() 讀取一個資料，並將結果存入data中，讀取完則是-1
+					fos.write(data); //data寫入指定的文件中
+				}
+				fos.flush();//刷新緩衝區並將緩衝區內的數據強制寫入目標設備
+				fos.close();
+				binaryStream.close();
+				System.out.println("ok");
+			}
+		}
+
+		catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
