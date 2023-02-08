@@ -1,0 +1,64 @@
+package userDao;
+
+import java.io.FileWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+public class ExportToCSV {
+	public static void main(String[] args) {
+        try {
+            // 加載 JDBC 驅動程式
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 連接資料庫
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/database_name", "username", "password");
+
+            // 建立 Statement
+            Statement stmt = con.createStatement();
+
+            // 查詢資料
+            ResultSet rs = stmt.executeQuery("SELECT * FROM table_name");
+
+            // 建立 CSV 檔案
+            FileWriter fw = new FileWriter("data.csv");//path
+
+            // 取得資料欄的名 稱和資料表的元數據
+           
+            ResultSetMetaData metadata = rs.getMetaData();
+            int columnCount = metadata.getColumnCount();
+
+            // 寫入 CSV 檔案的標題
+            for (int i = 1; i <= columnCount; i++) {
+                fw.append(metadata.getColumnName(i));
+                if (i < columnCount) {
+                    fw.append(",");
+                }
+            }
+            fw.append("\n");
+
+            // 寫入資料
+            while (rs.next()) {
+                for (int i = 1; i <= columnCount; i++) {
+                    fw.append(rs.getString(i));
+                    if (i < columnCount) {
+                        fw.append(",");
+                    }
+                }
+                fw.append("\n");
+            }
+
+            // 關閉檔案
+            fw.flush();
+            fw.close();
+
+            // 關閉連接
+            con.close();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        	}
+        	}
+        	}

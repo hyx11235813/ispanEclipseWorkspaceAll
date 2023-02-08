@@ -15,4 +15,3 @@ public class RegDriver {
 	}
 
 }
-//註冊driver

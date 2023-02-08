@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
-    <fullyQualifiedTypeName name="connectionUtil.ConnectionTool"/>
     <fullyQualifiedTypeName name="netscape.javascript.JSObject"/>
     <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
@@ -27,4 +26,7 @@
     <fullyQualifiedTypeName name="java.lang.Object"/>
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="connectionUtil.ConnectionTool"/>
+    <fullyQualifiedTypeName name="java.io.FileWriter"/>
+    <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
 </qualifiedTypeNameHistroy>

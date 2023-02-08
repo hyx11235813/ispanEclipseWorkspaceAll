@@ -1,0 +1,23 @@
+package userDao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import connectionUtil.ConnectionTool;
+
+public class DbToCSV {
+	public static void main(String[] args) {
+		ConnectionTool connectionTool = new ConnectionTool();
+		try (Connection conn = connectionTool.getConnection()) {
+
+			Statement stmt = conn.createStatement();
+			
+			
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+}

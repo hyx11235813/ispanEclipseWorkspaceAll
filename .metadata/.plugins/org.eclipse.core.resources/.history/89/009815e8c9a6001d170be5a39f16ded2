@@ -1,0 +1,30 @@
+package userDao;
+
+import java.io.FileWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
+
+public class ExportToCSV {
+    public static void main(String[] args) {
+        try {
+            // 加載 JDBC 驅動程式
+            Class.forName("com.mysql.jdbc.Driver");
+
+            // 連接資料庫
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/database_name", "username", "password");
+
+            // 建立 Statement
+            Statement stmt = con.createStatement();
+
+            // 查詢資料
+            ResultSet rs = stmt.executeQuery("SELECT * FROM table_name");
+
+            // 建立 CSV 檔案
+            FileWriter fw = new FileWriter("data.csv");
+
+            // 取得資料欄的名
+

@@ -9,7 +9,7 @@ public class ConnectionTool {
 	private String user = "huangyixian";
 	private String pwd = "123";
 
-	public Connection getConnection() throws SQLException { //資料庫連綫方法，以供調用
+	public Connection getConnection() throws SQLException { 
 		return DriverManager.getConnection(url, user, pwd);
 	}
 

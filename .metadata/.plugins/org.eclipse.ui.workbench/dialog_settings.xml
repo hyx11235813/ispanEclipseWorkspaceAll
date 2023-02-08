@@ -33,4 +33,6 @@
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 		</list>
 	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+	</section>
 </section>

@@ -1,4 +1,7 @@
-AbstractTextEditor.Color.Background=199,237,204
+AbstractTextEditor.Color.Background=191,234,197
 AbstractTextEditor.Color.Background.SystemDefault=false
+AbstractTextEditor.Color.SelectionBackground=35,68,135
+currentLineColor=106,106,106
 eclipse.preferences.version=1
+lineNumberColor=191,234,197
 spellingEnabled=false

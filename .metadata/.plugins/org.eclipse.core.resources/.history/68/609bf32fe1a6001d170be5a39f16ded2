@@ -1,0 +1,28 @@
+package userDao;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import connectionUtil.ConnectionTool;
+
+public class DbToCSV {
+	public static void main(String[] args) {
+		ConnectionTool connectionTool = new ConnectionTool();
+		try (Connection conn = connectionTool.getConnection()) {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Person");// 查詢結果的結果集
+			FileWriter fw = new FileWriter("C:/Person.csv");// 創造文件並寫入
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
